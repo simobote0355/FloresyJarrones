@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = os.getenv('HOST', 'localhost').split(',')
+ALLOWED_HOSTS = config('HOST', default='localhost', cast=Csv())
 
 AUTH_USER_MODEL = 'FlowersShopApp.Users'
 LOGIN_REDIRECT_URL = 'home'
