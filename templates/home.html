@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %} | Inicio {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<header class="hero-section text-center py-5">
+    <div class="container">
+        <h1 class="display-4 text-accent">Bienvenidos a Flores y Jarrones</h1>
+        <p class="lead text-muted">Tu nuevo rincón favorito para flores frescas y naturales.</p>
+        <a href="{% url 'shop' %}" class="btn btn-primary mt-3">Explorar Tienda</a>
+    </div>
+</header>
+
+<!-- Sobre Nosotros -->
+<section class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <img src="{% static 'img/logo.png' %}" class="img-fluid rounded shadow" alt="Flores frescas">
+        </div>
+        <div class="col-md-6">
+            <h2 class="mb-3">Flores con propósito</h2>
+            <p>Somos una pequeña tienda apasionada por la naturaleza y los detalles. Cada ramo que hacemos es único y está lleno de amor.</p>
+            <p>Queremos crecer contigo, y esta es nuestra primera temporada. ¡Gracias por visitarnos!</p>
+        </div>
+    </div>
+</section>
+
+<!-- Productos Destacados (demo) -->
+<section class="container my-5">
+    <h2 class="text-center mb-4">Ramos Destacados</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="{% static 'img/logo.png' %}" class="card-img-top" alt="Ramo Primavera">
+                <div class="card-body">
+                    <h5 class="card-title">Ramo Primavera</h5>
+                    <p class="card-text">Colores suaves, aroma fresco, ideal para regalar.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="{% static 'img/logo.png' %}" class="card-img-top" alt="Ramo Silvestre">
+                <div class="card-body">
+                    <h5 class="card-title">Ramo Silvestre</h5>
+                    <p class="card-text">Inspirado en la naturaleza libre, con toques rústicos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="{% static 'img/logo.png' %}" class="card-img-top" alt="Ramo Elegancia">
+                <div class="card-body">
+                    <h5 class="card-title">Ramo Elegancia</h5>
+                    <p class="card-text">Ideal para eventos especiales o un detalle delicado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'shop' %}" class="btn btn-outline-primary">Ver más ramos</a>
+    </div>
+
+    <!-- Reseñas de clientes con fotos de flores -->
+    <div class="container mt-5" id="reseñas">
+        <h3 class="text-center mb-4">Reseñas 🌼</h3>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{% static 'img/logo.png' %}" class="card-img-top" alt="Ramo de Ana">
+                    <div class="card-body">
+                        <h6 class="card-title">Ana M.</h6>
+                        <p class="card-text">“¡El ramo llegó hermoso! Las flores estaban frescas y el arreglo superó mis expectativas.”</p>
+                        <small class="text-muted">🌸 Pedido: Ramo primavera</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{% static 'img/logo.png' %}" class="card-img-top" alt="Flores de Luis">
+                    <div class="card-body">
+                        <h6 class="card-title">Luis C.</h6>
+                        <p class="card-text">“Pedí este arreglo para sorprender a mi mamá en su cumpleaños. ¡Le encantó!”</p>
+                        <small class="text-muted">💐 Pedido: Arreglo color pastel</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{% static 'img/logo.png' %}" class="card-img-top" alt="Ramo de Carla">
+                    <div class="card-body">
+                        <h6 class="card-title">Carla G.</h6>
+                        <p class="card-text">“No esperaba tanto por tan poco. Atención excelente y entrega puntual.”</p>
+                        <small class="text-muted">🌷 Pedido: Mini bouquet de bienvenida</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row mt-5 text-center">
+        <div class="col-md-4">
+            <i class="bi bi-truck" style="font-size: 2rem; color: var(--color-accent);"></i>
+            <h4>Envíos rápidos</h4>
+            <p>Realizamos envíos en todo el país con amor y cuidado. ¡Tu ramo llegará fresco y puntual!</p>
+        </div>
+        <div class="col-md-4">
+            <i class="bi bi-stars" style="font-size: 2rem; color: var(--color-accent);"></i>
+            <h4>Calidad garantizada</h4>
+            <p>Seleccionamos flores de la mejor calidad y trabajamos con productores locales.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="bi bi-emoji-heart-eyes" style="font-size: 2rem; color: var(--color-accent);"></i>
+            <h4>Diseños únicos</h4>
+            <p>Cada arreglo floral es creado con creatividad y dedicación para sorprender.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

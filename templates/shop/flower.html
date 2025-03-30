@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} | {{ flower.nombre }} {% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-sm p-3" >
+        <div class="row g-3 align-items-center">
+            <div class="col-md-6">
+                <div class="ratio ratio-1x1">
+                    {% if flower.imagen %}
+                        <img src="{{ flower.imagen.url }}" class="img-fluid rounded" alt="{{ flower.nombre }}" style="object-fit: cover;">
+                    {% else %}
+                        <p class="text-center">No hay imagen disponible</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h1 class="card-title fs-1 fw-bold">{{ flower.nombre }}</h1>
+                    <p class="card-text fs-3 fw-semibold">${{ flower.precio }} COP</p>
+                    <p class="card-text text-muted">{{ flower.descripcion }}</p>  <!-- Nueva línea -->
+
+
+                    <form method="post" >
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="cantidad" class="form-label">Cantidad:</label>
+                            <input type="number" name="cantidad" id="cantidad" class="form-control" min="1" value="1" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label">Mensaje:</label>
+                            <textarea name="mensaje" id="mensaje" class="form-control" rows="3" placeholder="Escribe una dedicatoria o mensaje especial..."></textarea>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-block">
+                            <button type="submit" name="action" value="carrito" class="btn btn-primary"><strong>Añadir al carrito</strong></button>
+                            <button type="submit" name="action" value="comprar" class="btn btn-success"> <strong>Comprar ahora</strong></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

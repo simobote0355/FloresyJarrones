@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %} | Mi Carrito {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">🛒 Carrito de Compras</h2>
+
+    {% if carrito %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle shadow-sm text-center">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Mensaje</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Subtotal</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in carrito %}
+                    <tr>
+                        <td>{{ item.nombre }}</td>
+                        <td>{{ item.mensaje|default:"-" }}</td>
+                        <td>{{ item.cantidad }}</td>
+                        <td>${{ item.precio }}</td>
+                        <td>${{ item.subtotal}}</td>
+                        <td>
+                            <form method="post" action="{% url 'eliminar' producto_id=item.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                
+            </table>
+        </div>
+
+        <div class="text-end mt-4">
+            <p class="fw-bold fs-5">Total: <span style="color: var(--color-accent-dark);">${{ total }}</span></p>
+            <a href="{% url 'shop' %}" class="btn btn-outline-primary">← Seguir comprando</a>
+            <a href="#" class="btn btn-primary">💳 Proceder al pago</a>
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            Tu carrito está vacío.
+        </div>
+        <a href="{% url 'shop' %}" class="btn btn-outline-primary">← Ir a la tienda</a>
+    {% endif %}
+</div>
+{% endblock %}

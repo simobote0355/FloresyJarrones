@@ -1,0 +1,46 @@
+# Entorno virtual
+venv/
+ENV/
+env/
+.venv/
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Archivos temporales
+*.log
+*.pot
+*.pyc
+*.swp
+*.bak
+*.tmp
+
+# Archivos de configuración local
+.env
+*.sqlite3
+
+# Archivos de compilación
+*.so
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de Django
+/staticfiles/
+media/
+db.sqlite3
+
+# Archivos de migraciones (opcional, pero útil si no quieres subirlas)
+*/migrations/__pycache__/
+*/migrations/*.pyc
+
+# Archivos creados por collectstatic (ya los tienes en /staticfiles/)
+staticfiles/
+
+# Archivos de VS Code u otros editores
+.vscode/
+.idea/
