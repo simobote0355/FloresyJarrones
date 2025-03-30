@@ -29,6 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('HOST', default='localhost', cast=Csv())
+print(ALLOWED_HOSTS)
 
 AUTH_USER_MODEL = 'FlowersShopApp.Users'
 LOGIN_REDIRECT_URL = 'home'
